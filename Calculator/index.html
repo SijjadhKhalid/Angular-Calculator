@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>  <!--Title of website-->
+		<title>Calculator</title>
+		<meta charset="UTF-8">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+		<!--Link to css file-->
+		<link href= "Styles.css" rel="stylesheet" type="text/css"/>
+		
+	</head>
+
+	<body ng-app="calcApp" ng-controller="calcController">
+	<div class="container">
+	
+	<span class="page-title">Calculator</span>
+	
+	Standard: <input type="checkbox" ng-model="standard">
+		<div ng-show="standard" ng-init="result=0; value1=null; value2=null">
+		<table>
+			<tr>
+				<td><input class="calcButtons" type="button" ng-click="valueperc()" value="&#37;" ></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuepower()" value="x&#178;"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuesqrt()" value="&#8730;"></td>
+				<td><input class="calcButtons red"  type="button" ng-click="valueclr()" value="C"></td>
+			</tr>                 
+			<tr>                  
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(7)" value="7"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(8)" value="8"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(9)" value="9"></td>
+				<td><input class="calcButtons"  type="button" ng-click="operatorcheck('*')" value="*"></td>
+			</tr>                 
+			<tr>                  
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(4)" value="4"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(5)" value="5"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(6)" value="6"></td>
+				<td><input class="calcButtons"  type="button" ng-click="operatorcheck('-')" value="-"></td>
+			</tr>                 
+			<tr>                  
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(1)" value="1"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(2)" value="2"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(3)" value="3"></td>
+				<td><input class="calcButtons"  type="button" ng-click="operatorcheck('+')" value="+"></td>
+			</tr>
+			<tr>     
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(0)" value=""></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(0)" value="0"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(0)" value=""></td>
+				<td><input class="calcButtons"  type="button" ng-click="operatorcheck('/')" value="/"></td>
+			</tr>
+		</table>
+		</div>
+		Programming: <input type="checkbox" ng-model="programming">
+		<div ng-show="programming" ng-init="count=0">
+		<table>
+			<tr>
+				<td><input class="calcButtons"  type="button" ng-click="thirdpower()" value="x^3"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(3.14)" value="&#8719;"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(2.718)" value="e"></td>
+				<td><input class="calcButtons"  type="button" ng-click="pow()" value="pow"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuedel()" value="del"></td>
+			</tr> 
+			<tr>
+				<td><input class="calcButtons"  type="button" ng-click="powerbasetwo()" value="2^x"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valueperc()" value="&#37;"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuepower()" value="x&#178;"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuesqrt()" value="&#8730;"></td>
+				<td><input class="calcButtons red"  type="button" ng-click="valueclr()" value="C"></td>
+			</tr>         
+			<tr>        
+				<td><input class="calcButtons"  type="button" ng-click="overone()" value="1/x"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(7)" value="7"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(8)" value="8"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(9)" value="9"></td>
+				<td><input class="calcButtons"  type="button" ng-click="operatorcheck('*')" value="*"></td>
+			</tr>         
+			<tr>          
+				<td><input class="calcButtons"  type="button" ng-click="powerToTen()" value="10^x"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(4)" value="4"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(5)" value="5"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(6)" value="6"></td>
+				<td><input class="calcButtons"  type="button" ng-click="operatorcheck('-')" value="-"></td>
+			</tr>        
+			<tr>
+				<td><input class="calcButtons"  type="button" ng-click="log()" value="ln"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(1)" value="1"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(2)" value="2"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(3)" value="3"></td>
+				<td><input class="calcButtons"  type="button" ng-click="operatorcheck('+')" value="+"></td>
+			</tr>
+			<tr>
+				<td><input class="calcButtons"  type="button" ng-click="log()" value="log"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(0)" value=""></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(0)" value="0"></td>
+				<td><input class="calcButtons"  type="button" ng-click="valuecheck(0)" value=""></td>
+				<td><input class="calcButtons"  type="button" ng-click="operatorcheck('/')" value="/"></td>
+			</tr>
+		</table>
+		</div>
+		<p><input type="number" ng-model="value1"></p>
+		<p><input type="number" ng-model="value2"></p>
+		<p class="result">{{result}}</p>
+		<p class="result">{{result1}}</p>
+		
+		<p class="sub-result">{{hex}}</p>
+		<p class="sub-result">{{dec}}</p>
+		<p class="sub-result">{{oct}}</p>
+		<p class="sub-result">{{bin}}</p>
+		
+		</div>
+		
+		<script>
+		var app = angular.module('calcApp', []);
+		app.controller('calcController', function($scope) {
+			$scope.valuecheck = function(val){
+				if($scope.value1 == null){
+				$scope.value1 = val;
+				}else{
+				$scope.value2 = val;
+				}
+			};
+			$scope.valueclr = function(){
+				$scope.value1 = null;
+				$scope.value2 = null;
+				$scope.result = null;
+				$scope.result1 = null;
+				$scope.hex = null;
+				$scope.oct = null;
+				$scope.bin = null;
+			};
+			$scope.valuesqrt = function(){
+				$scope.result = Math.sqrt($scope.value1, $scope.value2);
+			};
+			$scope.valuepower = function(){
+				$scope.result = Math.pow($scope.value1, 2);
+				$scope.result1 = Math.pow($scope.value2, 2);
+			};
+			$scope.pow = function(){
+				$scope.result = Math.pow($scope.value1, $scope.value2);
+			};
+			$scope.valueperc = function(){
+				$scope.result = parseFloat($scope.value1) / 100 + "%";
+				$scope.result1 = parseFloat($scope.value2) / 100 + "%";
+			};
+			$scope.log = function(){
+				$scope.result = Math.log($scope.value1);
+				$scope.result1 = Math.log($scope.value2);
+			};
+			$scope.powerToTen = function(){
+				$scope.result = Math.pow(10, $scope.value1);
+				$scope.result1 = Math.pow(10, $scope.value2);
+			};
+			$scope.valuedel = function(){
+				if($scope.value2 == null){
+					$scope.value1 = null;
+				}else{
+				$scope.value2 = null;
+				}
+			};
+			$scope.overone = function(){
+				$scope.result = 1 / $scope.value1;
+				$scope.result1 = 1 / $scope.value2;
+			};
+			$scope.powerbasetwo = function(){
+				$scope.result = Math.pow(2, $scope.value1);
+				$scope.result1 = Math.pow(2, $scope.value2);
+			};
+			$scope.thirdpower = function(){
+				$scope.result = Math.pow($scope.value1, 3);
+				$scope.result1 = Math.pow($scope.value2, 3);
+			};
+			
+			$scope.operatorcheck = function(op){
+				if(op == '+'){
+					$scope.result = $scope.value1 + $scope.value2;
+				}
+				if(op == '-'){
+					$scope.result = $scope.value1 - $scope.value2;
+				}
+				if(op == '*'){
+					$scope.result = $scope.value1 * $scope.value2;
+				}
+				if(op == '/'){
+					$scope.result = $scope.value1 / $scope.value2;
+				}
+				$scope.hex = "HEX: " + ($scope.result).toString(16);    
+				$scope.oct = "OCT: " + ($scope.result).toString(8);      
+				$scope.bin = "BIN: " + ($scope.result).toString(2); 
+			}
+		
+		});
+		</script>
+	
+	
+	</body>
+</html>
+
+
+

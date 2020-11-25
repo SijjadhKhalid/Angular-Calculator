@@ -1,0 +1,54 @@
+.page-title {
+	display:block;
+  font-size: 25px;
+  color: black;
+  font-weight: bold;
+  border-bottom: 5px solid #37af1d;
+  width: 100%;
+  text-align:center;
+}
+
+.container{
+  margin: auto;
+  width: 40%;
+  padding: 10px;
+  border: 1px solid #f2f2f2;
+  -webkit-box-shadow: 1px 1px 4px 0px rgba(176,176,176,1);
+     -moz-box-shadow: 1px 1px 4px 0px rgba(176,176,176,1);
+          box-shadow: 1px 1px 4px 0px rgba(176,176,176,1);
+  background-color: #F8F8F8;
+}
+
+table{
+  width: 100%;
+}
+td{
+  width: 25%;
+}
+.result{
+  font-size: 24px;
+  padding: 16px 5px;
+  font-weight: 700;
+  text-align: right;
+  width: 96%;
+  border: none;
+  background-color: #F8F8F8;
+}
+ .calcButtons{
+  padding: 15px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  background-color: #F2F2F2;
+  width: 100%;
+}
+
+.calcButtons:hover{
+	background-color:#D4D5D5;
+}
+
+.red{
+	color: white;
+  background-color: #F50258
+}
